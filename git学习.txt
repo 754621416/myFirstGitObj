@@ -1,0 +1,45 @@
+1.windows 安装git软件
+2.初始化git设置用户名和邮箱
+	git config --global user.name super_gch
+	git config --global user.email 754621416@qq.com
+3.可以保存密码方便下次不再输入
+	git config --global credential.helper store
+3.1 查看保存的git配置信息
+	git config --global --list
+4.创建 git 本次仓库
+	git  init
+5.添加文件到暂存区
+	添加指定文件		git add 文件1.txt
+	添加指定后缀文件	git add *.txt
+	添加当前目录所有文件	git add .
+6.提交文件到本地仓库
+	直接备注提交		git commit -m "这是第一次提交"
+	提醒备注提交		git commit	显示需要备注的文件信息   上下左右键可调整位置  i键后输入 这是第一次提交 ESC 推出输入 英文:wq 保存退出
+7.查看暂存区状态即本地文件那些没有提交那些没有添加
+	git status
+8.查看提交日志
+	详细信息查看 git log
+	简单信息查看 git log --oneline
+9.回退版本
+	版本号：即通过log查看的版本号，上一个版本：如回退到上一个版本 git reset HEAD^
+	回退三种模式：git reset --soft 版本号（通过log查看） 这种方式本地会回退到指定版本，本地，仓库会保留不做改动
+				  git reset --hard 版本号（通过log查看    这种方式本地和仓库会回退到指定版本，并且本地和仓库文件都会删除其余版本
+				  git reset --mixed 默认可不填  版本号  这种仓库会删除其余版本 本地会保留
+9.终极查看所有操作日志，误删除回退
+	git reflog  可根据版本号回退
+10.查看工作区暂存区本地仓库之间的差异
+	git diff 默认是工作区和暂存区的差异
+	git diff 版本1 版本2  查看两个版本间的差异
+	git diff --cached 查看暂存区和仓库之间的差异
+	git diff HEAD  查看工作区和仓库之间的差异
+	git diff HEAD~ HEAD 查看上一版本和最新版本的差异  上一版本的格式可以是：HEAD^ HEAD~  查询上多个版本可以用  HEAD~2 表示和上两个版本的差异
+	git diff 版本1 版本2  测试.txt  表示查看两个版本中测试.txt 这个文件的差异 其他则不显示
+11.删除操作
+	可以本地删除后通过  add commit 提交来操作
+	可以通过 git rm 指定文件名 操作	，删除工作区和暂存区的文件
+	可以通过 git rm -r --cached 文件夹名字  来删除暂存区的文件夹
+	可以通过 git rm -r * 删除所有文件工作去和暂存区的所有
+12.版本忽略文件的使用
+	创建一个无bom头的 .gitignore,内容一行一个，可以为文件完整名，目录\ ,*.txt 任意名字的后缀一直的文件等	
+
+
