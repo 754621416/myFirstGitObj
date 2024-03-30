@@ -55,5 +55,11 @@
 	正常后以后的拉取仓库可以是简单的使用  ：git pull 来拉取  实际的命令时  git pull origin(远程仓库别名) main(分支名，相同时只写一个，不同时mian(远程仓库分支名):aaa(本地仓库分支名))
 16.git分支
 	git switch 分支名  切换指定分支
+17.git分支的合并以及解决冲突
+	dev等分支在提交时如提示冲突，需先解决冲突后提交
+	合并到主分支的操作,先切换到主分支  git switch main 然后执行合并操作 git merge dev(需要合并的分支)
+18.提交时add和commit 可以合并成一个命令
+	git commit -am '提交说明'  注意 涉及的文件必须已经在版本库中，才能使用 -a  否则老老实实  git add .  git commit
+
 	
 
