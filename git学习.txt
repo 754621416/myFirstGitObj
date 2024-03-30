@@ -47,4 +47,10 @@
 14.远程版本库的推送和拉取
 	git push  将本地commit的数据 推到远程仓库中
 	git pull	将远程仓库中的数据拉取到本地仓库中
+15.本地仓库和远程仓库合并
+	git remote  add origin git的ssh仓库地址  这一步是为即将要添加的远程仓库取一个别称，后续在使用的时候都会只是用到这个别称
+	注意部分本地仓库可能是 master为主分支名称 而git是以main作为主分支的所以在和远程仓库进行关联的时候要优先把名字转换为main，git branch  -M main ，
+	更改本地分支名称为main后，要将本地和远程仓库进行关联，git push -u origin main
+	在合并两个不相关的git库时，原因可能是 原git曾经被拉取到本地，然后本地进行了源文件删除，然后又在别的git中进行合并操作，此时会提醒是不想干的两个库，想要合并这个两个库可以使用：git pull origin main --allow-unrelated-histories  进行强制的远程拉取到本地合并
+	正常后以后的拉取仓库可以是简单的使用  ：git pull 来拉取  实际的命令时  git pull origin(远程仓库别名) main(分支名，相同时只写一个，不同时mian(远程仓库分支名):aaa(本地仓库分支名))
 
